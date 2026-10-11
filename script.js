@@ -1,12 +1,14 @@
 const screen = document.querySelector('#screen');
 const topButton = document.querySelector('#topButton');
 
+document.body.style.backgroundColor = 'black';
+
 screen.style.height = '960px';
 screen.style.width = '960px';
 screen.style.border = 'solid';
-screen.style.borderColor = 'red';
 screen.style.display = 'flex';
 screen.style.flexDirection = 'column';
+screen.style.gap = '5px';
 
 function createGrid(squareNumber) {
     while (screen.firstChild) {
@@ -20,6 +22,7 @@ function createGrid(squareNumber) {
         rowDiv.style.display = 'flex';
         rowDiv.style.flex = '1 1 0';
         rowDiv.style.alignItems = 'stretch';
+        rowDiv.style.gap = '5px';
 
         screen.appendChild(rowDiv);
 
@@ -27,16 +30,23 @@ function createGrid(squareNumber) {
             const columnDiv = document.createElement('div');
 
 
-            columnDiv.style.border = 'solid';
             columnDiv.style.display = 'flex';
             columnDiv.style.flex = '1 1 0';
             columnDiv.style.alignItems = 'stretch';
+            columnDiv.style.opacity = 1;
+            columnDiv.style.backgroundColor = '#363636';
 
             columnDiv.addEventListener('mouseenter', (event) => {
                 const div = event.target;
-                
-                const newColor = `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`;
+
+                const opacity = `${div.style.opacity - 0.1}`;
+                console.log(opacity)
+                div.style.opacity = opacity;
+
+                const newColor = `rgba(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${opacity})`;
                 div.style.backgroundColor = newColor;
+
+                
             })
 
             rowDiv.appendChild(columnDiv);

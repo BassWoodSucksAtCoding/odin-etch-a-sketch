@@ -1,5 +1,6 @@
 const screen = document.querySelector('#screen');
 const topButton = document.querySelector('#topButton');
+const title = document.querySelector('h1')
 
 document.body.style.backgroundColor = 'black';
 
@@ -56,6 +57,10 @@ function createGrid(squareNumber) {
 
 createGrid(16);
 
+title.style.color = 'white';
+title.style.fontSize = '50px';
+
+topButton.style.fontSize = '30px';
 topButton.addEventListener('click', (event) => {
     let squareNumber = prompt("Enter the number of squares")
     if (squareNumber > 100) {

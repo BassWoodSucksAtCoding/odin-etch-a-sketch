@@ -9,6 +9,9 @@ screen.style.display = 'flex';
 screen.style.flexDirection = 'column';
 
 function createGrid(squareNumber) {
+    while (screen.firstChild) {
+        screen.removeChild(screen.lastChild)
+    }
 
     for (let row=0;row<squareNumber;row++) {
         const rowDiv = document.createElement('div');
@@ -31,7 +34,9 @@ function createGrid(squareNumber) {
 
             columnDiv.addEventListener('mouseenter', (event) => {
                 const div = event.target;
-                div.style.backgroundColor = "blue";
+                
+                const newColor = `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`;
+                div.style.backgroundColor = newColor;
             })
 
             rowDiv.appendChild(columnDiv);

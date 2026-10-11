@@ -4,6 +4,7 @@ for (let row=0;row<16;row++) {
     const rowDiv = document.createElement('div');
     rowDiv.classList.add("rowDiv");
     rowDiv.style.display = 'flex';
+    
     screen.appendChild(rowDiv);
 
     for (let column=0;column<16;column++) {
@@ -11,6 +12,8 @@ for (let row=0;row<16;row++) {
         const text = document.createElement('p');
 
         text.textContent = "div";
+        columnDiv.style.border = 'solid';
+
         rowDiv.appendChild(columnDiv);
         columnDiv.appendChild(text);
     }
